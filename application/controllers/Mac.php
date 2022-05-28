@@ -1,0 +1,28 @@
+<?php
+
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class Mac extends CI_Controller
+{
+
+    public function index()
+    {
+
+        $ipAddress = $_SERVER['REMOTE_ADDR'];
+        $macAddr = false;
+
+        #run the external command, break output into lines
+        $arp = `arp -a $ipAddress`;
+        $lines = explode("\n", $arp);
+
+        #look for the output line describing our IP address
+        foreach ($lines as $line) {
+            $cols = preg_split('/\s+/', trim($line));
+            if ($cols[0] == $ipAddress) {
+                $macAddr = $cols[1];
+            }
+        }
+    }
+}
+
+/* End of file Mac.php */
