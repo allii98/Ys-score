@@ -2,12 +2,13 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_user extends CI_Model
+class M_penonton extends CI_Model
 {
-    var $table = 'tbuser'; //nama tabel dari database
-    var $column_order = array(null, 'user_id', 'user_nama', 'username', 'email', 'user_foto'); //field yang ada di table user
-    var $column_search = array('user_nama', 'username', 'email'); //field yang diizin untuk pencarian 
-    var $order = array('user_id' => 'desc'); // default order 
+
+    var $table = 'tbpertandingan'; //nama tabel dari database
+    var $column_order = array(null,  'masuk', 'keluar'); //field yang ada di table user
+    var $column_search = array(); //field yang diizin untuk pencarian 
+    var $order = array('id' => 'desc'); // default order 
 
     public function __construct()
     {
@@ -15,9 +16,10 @@ class M_user extends CI_Model
         $this->load->database();
     }
 
-    private function _get_datatables_query()
+    private function _get_datatables_query($id)
     {
         $this->db->from($this->table);
+        $this->db->where('id', $id);
         $i = 0;
 
         foreach ($this->column_search as $item) // looping awal
@@ -47,56 +49,30 @@ class M_user extends CI_Model
         }
     }
 
-    function get_datatables()
+    function get_datatables($id)
     {
-        $this->_get_datatables_query();
+        $this->_get_datatables_query($id);
         if ($_POST['length'] != -1)
             $this->db->limit($_POST['length'], $_POST['start']);
         $query = $this->db->get();
         return $query->result();
     }
 
-    function count_filtered()
+    function count_filtered($id)
     {
-        $this->_get_datatables_query();
+        $this->_get_datatables_query($id);
         $query = $this->db->get();
         return $query->num_rows();
     }
 
-    public function count_all()
+    public function count_all($id)
     {
         $this->db->from($this->table);
+        $this->db->where('id', $id);
         return $this->db->count_all_results();
     }
     // end server side table
 
-
-    public function saveUser($data)
-    {
-        $this->db->insert($this->table, $data);
-        return true;
-    }
-
-    function get_data_by_id($id)
-    {
-        $this->db->from($this->table);
-        $this->db->where('user_id', $id);
-        $query = $this->db->get();
-
-        return $query->row();
-    }
-
-    public function updateUser($id, $data)
-    {
-        $this->db->update($this->table, $data, $id);
-        return true;
-    }
-
-    public function deleteUser($id)
-    {
-        $this->db->where('user_id', $id);
-        $this->db->delete($this->table);
-    }
 }
 
-/* End of file M_user.php */
+/* End of file M_penonton.php */

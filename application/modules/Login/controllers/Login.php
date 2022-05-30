@@ -48,7 +48,6 @@ class Login extends CI_Controller
 				$data = $this->Login_m->viewDataByID($username);
 				foreach ($data as $dkey) {
 					$passDB = $dkey->user_pass;
-					$level = $dkey->level;
 					$nama = $dkey->user_nama;
 					// $avatar = $dkey->foto;
 					//$idusr = $dkey->id;
@@ -57,13 +56,8 @@ class Login extends CI_Controller
 					// Password match
 					$this->session->set_userdata('userlogin', $username);
 					$this->session->set_userdata('user', $nama);
-					$this->session->set_userdata('level', $level);
 
-					if ($level === '1') {
-						redirect('Home');
-					} elseif ($level === '2') {
-						redirect('Tes');
-					}
+					redirect('Home');
 				} else {
 					// Password does not match
 					$this->session->set_flashdata("pesan", "<div class=\"alert alert-danger alert-dismissible\" id=\"alert\"><strong>Gagal Login, password salah!</strong> </div>");

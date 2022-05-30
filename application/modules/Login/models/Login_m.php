@@ -6,12 +6,12 @@ class Login_m extends CI_Model
     {
         $this->db->where('username', $username);
 
-        return $this->db->get('tbuser')->row();
+        return $this->db->get('admin')->row();
     }
 
     public function get($id = null)
     {
-        $this->db->from('tbuser');
+        $this->db->from('admin');
         if ($id != null) {
             $this->db->where('user_id', $id);
         }
@@ -23,7 +23,7 @@ class Login_m extends CI_Model
     function viewDataByID($username)
     {
         $query = $this->db->where('username', $username);
-        $q = $this->db->get('tbuser');
+        $q = $this->db->get('admin');
         $data = $q->result();
 
         return $data;
@@ -36,7 +36,7 @@ class Login_m extends CI_Model
         $this->db->where('user_id', $id);
         $this->db->where('password', $pass);
 
-        return $this->db->get('tbuser')->row();
+        return $this->db->get('admin')->row();
     }
 
     function changepassUser($id, $data)

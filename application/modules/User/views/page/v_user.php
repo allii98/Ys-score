@@ -67,48 +67,61 @@
      <div class="modal-dialog modal-lg">
          <div class="modal-content">
              <div class="modal-header">
-                 <h4 class="modal-title" id="myModalLabel">Add New Users</h4>
+                 <h4 class="modal-title" id="labeladd" style="display: block;">Add New Users</h4>
+                 <h4 class="modal-title" id="labelupdate" style="display: none;">Update Users</h4>
                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                  </button>
              </div>
              <div class="modal-body">
-                 <div class="item form-group">
-                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama<span
-                             class="required">*</span>
-                     </label>
-                     <div class="col-md-6 col-sm-6 ">
-                         <input type="text" id="nama" required="required" class="form-control">
+                 <form action="#" id="form">
+
+                     <div class="item form-group">
+                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama<span
+                                 class="required">*</span>
+                         </label>
+                         <div class="col-md-6 col-sm-6 ">
+                             <input type="hidden" name="id" id="id">
+                             <input type="text" id="nama" required="required" name="nama" class="form-control">
+                         </div>
                      </div>
-                 </div>
-                 <div class="item form-group">
-                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Username<span
-                             class="required">*</span>
-                     </label>
-                     <div class="col-md-6 col-sm-6 ">
-                         <input type="text" id="username" name="username" required="required" class="form-control">
+                     <div class="item form-group">
+                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Username<span
+                                 class="required">*</span>
+                         </label>
+                         <div class="col-md-6 col-sm-6 ">
+                             <input type="text" id="username" name="username" required="required" class="form-control">
+                         </div>
                      </div>
-                 </div>
-                 <div class="item form-group">
-                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Email<span
-                             class="required">*</span>
-                     </label>
-                     <div class="col-md-6 col-sm-6 ">
-                         <input type="email" id="email" name="username" required="required" class="form-control">
+                     <div class="item form-group">
+                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Email<span
+                                 class="required">*</span>
+                         </label>
+                         <div class="col-md-6 col-sm-6 ">
+                             <input type="email" id="email" name="email" required="required" class="form-control">
+                         </div>
                      </div>
-                 </div>
-                 <div class="item form-group">
-                     <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Password<span
-                             class="required">*</span></label>
-                     <div class="col-md-6 col-sm-6 ">
-                         <input id="password" class="form-control" type="password" name="middle-name">
+                     <div class="item form-group" id="pw">
+                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Password<span
+                                 class="required">*</span></label>
+                         <div class="col-md-6 col-sm-6 ">
+                             <input id="password" class="form-control" type="password" name="password">
+                         </div>
                      </div>
-                 </div>
-                 <div class="item form-group">
-                     <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Foto</label>
-                     <div class="col-md-6 col-sm-6 ">
-                         <input id="foto" class="form-control" type="file" name="middle-name">
+
+                     <div class="item form-group">
+                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Foto</label>
+                         <div class="col-md-6 col-sm-6 ">
+                             <input id="photo" class="form-control" type="file" name="photo">
+                         </div>
                      </div>
-                 </div>
+
+                     <div class="item form-group" id="img" style="display: none;">
+                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align"></label>
+                         <div class="col-md-6 col-sm-6 " id="old">
+                             <img src="" width="50" height="50">
+                         </div>
+                     </div>
+                 </form>
 
 
                  <!-- <div class="ln_solid"></div> -->

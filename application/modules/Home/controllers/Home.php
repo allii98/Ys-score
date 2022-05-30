@@ -58,9 +58,10 @@ class Home extends CI_Controller
         $data =
             [
                 'title' => 'YS-score|Home',
+                'js' => 'core'
             ];
 
-        $this->template->load('template', 'dashboard', $data);
+        $this->template->load('template', 'page/dashboard', $data);
     }
 
     public function save()

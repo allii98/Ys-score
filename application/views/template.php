@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DataTables | Gentelella</title>
+    <title><?= $title ?></title>
 
     <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <link href="<?php echo base_url() ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,11 +29,17 @@
     <link href="<?php echo base_url() ?>assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css"
         rel="stylesheet">
 
+
+
+    <link href="<?php echo base_url() ?>assets/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css"
+        rel="stylesheet">
+
     <link href="<?php echo base_url() ?>assets/build/css/custom.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
 
+    <!-- <link href="<?php echo base_url() ?>assets/build/css/custom.css" rel="stylesheet"> -->
     <meta name="robots" content="noindex, nofollow">
 
 </head>
@@ -44,8 +50,8 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella
-                                Alela!</span></a>
+                        <a href="<?= base_url('Home') ?>" class="site_title"><i class="fa fa-paw"></i>
+                            <span>Ys-Score</span></a>
                     </div>
                     <div class="clearfix"></div>
 
@@ -71,7 +77,7 @@
                                 <li><a><i class="fa fa-edit"></i> Data <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="<?= base_url('User') ?>">User</a></li>
-                                        <li><a href="form_advanced.html">Input pertandingan</a></li>
+                                        <li><a href="<?= base_url('Pertandingan') ?>">Input pertandingan</a></li>
                                         <li><a href="form_validation.html">Sejarah</a></li>
                                         <li><a href="form_wizards.html">About</a></li>
                                     </ul>
@@ -94,7 +100,8 @@
                         <a data-toggle="tooltip" data-placement="top" title="Lock">
                             <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                        <a data-toggle="tooltip" data-placement="top" title="Logout"
+                            href="<?= base_url('Login/logout') ?>">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         </a>
                     </div>
@@ -122,7 +129,8 @@
                                         <span>Settings</span>
                                     </a>
                                     <a class="dropdown-item" href="javascript:;">Help</a>
-                                    <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out pull-right"></i>
+                                    <a class="dropdown-item" href="<?= base_url('Login/logout') ?>"><i
+                                            class="fa fa-sign-out pull-right"></i>
                                         Log Out</a>
                                 </div>
                             </li>
@@ -213,6 +221,16 @@
             <script src="<?php echo base_url() ?>assets/vendors/pnotify/dist/pnotify.js"></script>
             <script src="<?php echo base_url() ?>assets/vendors/pnotify/dist/pnotify.buttons.js"></script>
             <script src="<?php echo base_url() ?>assets/vendors/pnotify/dist/pnotify.nonblock.js"></script>
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+            <script src="<?php echo base_url() ?>assets/vendors/moment/min/moment.min.js"></script>
+            <script src="<?php echo base_url() ?>assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+            <script
+                src="<?php echo base_url() ?>assets/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js">
+            </script>
+
+
             <!-- untuk load js nya -->
             <?php if (!empty($js) || $js != '') : echo $this->load->view('js/' . $js . '.php');
             endif; ?>
@@ -226,7 +244,7 @@
 
             <footer>
                 <div class="pull-right">
-                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                    Ys-Score
                 </div>
                 <div class="clearfix"></div>
             </footer>

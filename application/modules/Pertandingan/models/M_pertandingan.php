@@ -2,12 +2,13 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_user extends CI_Model
+class M_pertandingan extends CI_Model
 {
-    var $table = 'tbuser'; //nama tabel dari database
-    var $column_order = array(null, 'user_id', 'user_nama', 'username', 'email', 'user_foto'); //field yang ada di table user
-    var $column_search = array('user_nama', 'username', 'email'); //field yang diizin untuk pencarian 
-    var $order = array('user_id' => 'desc'); // default order 
+
+    var $table = 'tbpertandingan'; //nama tabel dari database
+    var $column_order = array(null, 'id', 'tgl', 'nama_club1', 'nama_club1', 'waktu', 'masuk', 'keluar'); //field yang ada di table user
+    var $column_search = array('tgl', 'nama_club1', 'nama_club1'); //field yang diizin untuk pencarian 
+    var $order = array('id' => 'desc'); // default order 
 
     public function __construct()
     {
@@ -69,34 +70,32 @@ class M_user extends CI_Model
         return $this->db->count_all_results();
     }
     // end server side table
-
-
-    public function saveUser($data)
+    public function save_pertandingan($data)
     {
         $this->db->insert($this->table, $data);
         return true;
     }
 
-    function get_data_by_id($id)
+    public function get_data_by_id($id)
     {
         $this->db->from($this->table);
-        $this->db->where('user_id', $id);
+        $this->db->where('id', $id);
         $query = $this->db->get();
 
         return $query->row();
     }
 
-    public function updateUser($id, $data)
+    public function update_pertandingan($id, $data)
     {
         $this->db->update($this->table, $data, $id);
         return true;
     }
 
-    public function deleteUser($id)
+    public function delete_pertandingan($id)
     {
-        $this->db->where('user_id', $id);
+        $this->db->where('id', $id);
         $this->db->delete($this->table);
     }
 }
 
-/* End of file M_user.php */
+/* End of file M_pertandingan.php */
