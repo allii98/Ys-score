@@ -78,8 +78,8 @@
                                     <ul class="nav child_menu">
                                         <li><a href="<?= base_url('User') ?>">User</a></li>
                                         <li><a href="<?= base_url('Pertandingan') ?>">Input pertandingan</a></li>
-                                        <li><a href="form_validation.html">Sejarah</a></li>
-                                        <li><a href="form_wizards.html">About</a></li>
+                                        <li><a href="<?= base_url('Sejarah') ?>">Sejarah</a></li>
+                                        <li><a href="<?= base_url('About') ?>">About</a></li>
                                     </ul>
 
                                 </li>
@@ -225,7 +225,7 @@
 
             <script src="<?php echo base_url() ?>assets/vendors/moment/min/moment.min.js"></script>
             <script src="<?php echo base_url() ?>assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
+            <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
             <script
                 src="<?php echo base_url() ?>assets/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js">
             </script>

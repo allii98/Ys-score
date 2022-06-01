@@ -1,14 +1,13 @@
 <script type="text/javascript">
 $(document).ready(function() {
     getID();
-
     $('#btn_batal').hide();
     $('#btn_simpan').hide();
     $('#btn_update').show();
 });
 
 function penonton(id) {
-    console.log(id, ' adalah id nya');
+    // console.log(id, ' adalah id nya');
     $('#penonton').DataTable().destroy();
     var dt = $('#penonton').DataTable({
 
@@ -127,7 +126,7 @@ function getID() {
             $('#detail_waktu').val(data.waktu + " Menit");
             $('#score1').val(data.score_club1);
             $('#score2').val(data.score_club2);
-            if (data.status = 2) {
+            if (data.status == 2) {
                 $('#play').hide();
                 $('#ten-countdown').html("Time is up!");
             }
