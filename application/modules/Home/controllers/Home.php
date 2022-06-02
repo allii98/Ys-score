@@ -55,11 +55,28 @@ class Home extends CI_Controller
 
     public function index()
     {
+        $m = $this->M_data->countData();
+
+        if ($m == null) {
+            $masuk = 0;
+        } else {
+            $masuk = $m['masuk'];
+        }
+        if ($m == null) {
+            $keluar = 0;
+        } else {
+            $keluar = $m['keluar'];
+        }
+
         $data =
             [
                 'title' => 'YS-score|Home',
-                'js' => 'core'
+                'js' => 'core',
+                'masuk' => $masuk,
+                'keluar' => $keluar
             ];
+
+        // var_dump($data) . die();
 
         $this->template->load('template', 'page/dashboard', $data);
     }

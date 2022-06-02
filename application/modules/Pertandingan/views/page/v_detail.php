@@ -36,12 +36,13 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" id="detail_nama2">Waktu</label>
                             <div class="col-md-9 col-sm-9 col-xs-9">
                                 <input type="text" class="form-control" id="detail_waktu" readonly>
+                                <input type="hidden" class="form-control" id="wktu">
                                 <span class="fa fa-clock-o form-control-feedback right" aria-hidden="true"></span>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-md-3 col-sm-3 col-xs-3">
-                                <button type="button" onclick="play()" id="play" class="btn btn-success btn-sm"><i
+                                <button type="button" id="play" class="btn btn-success btn-sm"><i
                                         class="fa fa-play"></i></button>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-9">

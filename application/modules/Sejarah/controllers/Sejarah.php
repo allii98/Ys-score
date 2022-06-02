@@ -10,6 +10,11 @@ class Sejarah extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_sejarah');
+        if (!$this->session->userdata('userlogin')) {
+            $pemberitahuan = "<div class='alert alert-warning'>Anda harus login dulu </div>";
+            $this->session->set_flashdata('pesan', $pemberitahuan);
+            redirect('Login');
+        }
     }
 
 

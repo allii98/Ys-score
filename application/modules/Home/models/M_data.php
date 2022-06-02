@@ -157,6 +157,11 @@ class M_data extends CI_Model
         $this->db->from('tbkaryawan');
         return $this->db->get()->row();
     }
-}
 
-/* End of file M_data.php */
+    public function countData()
+    {
+
+        $data = $this->db->query("SELECT * FROM tbpertandingan WHERE status='1'")->row_array();
+        return $data;
+    }
+}

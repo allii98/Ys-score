@@ -4,6 +4,11 @@ $(document).ready(function() {
     $('#btn_batal').hide();
     $('#btn_simpan').hide();
     $('#btn_update').show();
+
+
+    $('#play').click(function() {
+        countdown("ten-countdown", $('#wktu').val(), 0);
+    });
 });
 
 function penonton(id) {
@@ -38,9 +43,6 @@ function penonton(id) {
     }, 100);
 }
 
-function play() {
-    countdown("ten-countdown", 01, 0);
-}
 
 function countdown(elementName, minutes, seconds) {
     var element, endTime, hours, mins, msLeft, time;
@@ -124,6 +126,7 @@ function getID() {
             $('#detail_nama1').html(data.nama_club1);
             $('#detail_nama2').html(data.nama_club2);
             $('#detail_waktu').val(data.waktu + " Menit");
+            $('#wktu').val(data.waktu);
             $('#score1').val(data.score_club1);
             $('#score2').val(data.score_club2);
             if (data.status == 2) {
