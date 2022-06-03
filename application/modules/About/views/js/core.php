@@ -12,7 +12,7 @@ function getDATA() {
         data: {},
         dataType: "JSON",
         success: function(data) {
-            $('#content').val(data.isi);
+            CKEDITOR.instances.content.setData(data.isi)
             $('#id').val(data.id);
         },
         error: function(jqXHR, textStatus, errorThrown) {

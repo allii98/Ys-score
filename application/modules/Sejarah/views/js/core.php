@@ -12,10 +12,11 @@ function getDATA() {
         dataType: "JSON",
         success: function(data) {
             $('#judul').val(data.judul);
-            $('#isi').val(data.isi);
+            CKEDITOR.instances.isi.setData(data.isi)
             $('#id').val(data.id);
             $('#old').html('<img src="<?php echo base_url() ?>assets/uploads/sejarah/' + data.foto +
                 '" width="50" height="50">');
+
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert('Error get data from ajax');
